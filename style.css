@@ -38,7 +38,7 @@ header{
 
 .circle{
     text-shadow: 0px 0px 2px black ;
-    transition: transform .4s
+    transition: transform .35s
 }
 
 .circle:hover{
