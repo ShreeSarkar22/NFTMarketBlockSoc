@@ -10,12 +10,10 @@ async function initWeb3() {
 async function connectMetaMask() {
     if (window.ethereum) {
       try {
-        // Request accounts from MetaMask
         const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
         const account = accounts[0];
         document.getElementById('connect-button').innerText = `Connected`;
-        
-        // Load contract once connected
+      
         loadContract();
       } catch (error) {
         console.error("User denied account access:", error);
@@ -24,6 +22,14 @@ async function connectMetaMask() {
       alert('MetaMask is not installed. Please install it to use this feature.');
     }
 }  
+
+function buyItem(itemName) {
+  document.getElementById('modal-text').innerText = `You have selected to buy ${itemName}`;
+  document.getElementById('modal').style.display = 'flex';
+}
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+}
 
 // async function connectWallet() {
 //     const connectButton = document.getElementById('connect-button');
